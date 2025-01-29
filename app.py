@@ -19,8 +19,8 @@ marital = st.selectbox('Estado civil',['single','married','divorced'], index=Non
 education = st.selectbox('Educacion', ['primary','secondary','tertiary','unknown'], index=None, placeholder="seleccione una opcion")
 default = st.number_input('Default (1 = si, 0 = no)', min_value=0, max_value=1)
 balance = st.number_input('Balance de cuenta del cliente (euros)', min_value=0)
-housing = st.number_input('Housing (1 = si, 0 = no)', min_value=0, max_value=1)
-loan = st.number_input('Housing (1 = si, 0 = no)', min_value=0, max_value=1)
+housing = st.number_input('Housing (1 = si, 0 = no)', min_value=0)
+loan = st.number_input('loan (1 = si, 0 = no)', min_value=0)
 
 # Crear un DataFrame con las entradas
 user_data = pd.DataFrame({
