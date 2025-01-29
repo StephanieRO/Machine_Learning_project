@@ -27,10 +27,10 @@ user_data = pd.DataFrame({
     'job': [job],
     'marital': [marital],
     'education': [education],
-    'default': [default],
+    'default_encoded': [default],
     'balance': [balance],
-    'housing': [housing],
-    'loan': [loan]
+    'housing_encoded': [housing],
+    'loan_encoded': [loan]
 })
 
 # Estandarizar las entradas
