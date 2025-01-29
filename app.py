@@ -14,9 +14,9 @@ with open('kmeans_model.pkl', 'rb') as model_file:
 st.title('Predicción de si el cliente pertenese al cluster 1() o 0()')
 
 # Entrada de datos del usuario
-job = st.selectbox('Trabajo (seleccione una opcion)', ['job_blue-collar','job_entrepreneur','job_housemaid','job_management','job_retired','job_self-employed','job_services','job_student','job_technician','job_unemployed','job_unknown'])
-marital = st.selectbox('Estado civil (seleccione una opcion)',['marital_married','marital_single'])
-education = st.selectbox('Educacion (seleccione una opcion)', ['education_secondary','education_tertiary','education_unknown'])
+job = st.selectbox('Trabajo (seleccione una opcion)', ['profesional','t_manuales','out_laboral','unknown'])
+marital = st.selectbox('Estado civil (seleccione una opcion)',['single','married','divorced'])
+education = st.selectbox('Educacion (seleccione una opcion)', ['primary','secondary','tertiary','unknown'])
 default = st.number_input('Default (1 = si, 0 = no)', min_value=0, max_value=1)
 balance = st.number_input('Balance de cuenta del cliente (euros)', min_value=0)
 housing = st.number_input('Housing (1 = si, 0 = no)', min_value=0)
