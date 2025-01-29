@@ -34,10 +34,10 @@ user_data = pd.DataFrame({
 })
 
 # Estandarizar las entradas
-user_data_standardized = preprocessor_file.transform(user_data)
+user_data_standardized = loaded_preprocessor.transform(user_data)
 
 # Realizar la predicción
-prediction_cluster = model_file.predict(user_data_standardized)
+prediction_cluster = loaded_kmeans.predict(user_data_standardized)
 
 # Mostrar la predicción
 st.write(f'"El cliente pertenece al cluster: {prediction_cluster[0]}')
