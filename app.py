@@ -40,4 +40,7 @@ user_data_standardized = loaded_preprocessor.transform(user_data)
 prediction_cluster = loaded_kmeans.predict(user_data_standardized)
 
 # Mostrar la predicción
-st.write(f'"El cliente pertenece al cluster: {prediction_cluster[0]}')
+if prediction_cluster[0] == 0:
+    st.write("El cliente pertenece al Cluster 0: Clientes con mayor probabilidad de realizar depósitos.")
+else:
+    st.write("El cliente pertenece al Cluster 1: Clientes con menor probabilidad de realizar depósitos.")
