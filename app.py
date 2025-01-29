@@ -1,7 +1,6 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import numpy as np
 
 # Cargar el modelo y el escalador desde archivos
 with open('preprocessor.pkl', 'rb') as preprocessor_file:
@@ -18,10 +17,10 @@ st.title('Predicción de si el cliente pertenese al cluster 1() o 0()')
 job = st.selectbox('Trabajo', ['profesional','t_manuales','out_laboral','unknown'], index=None, placeholder="seleccione una opcion")
 marital = st.selectbox('Estado civil',['single','married','divorced'], index=None, placeholder="seleccione una opcion" )
 education = st.selectbox('Educacion', ['primary','secondary','tertiary','unknown'], index=None, placeholder="seleccione una opcion")
-default = st.selectbox('Default', ['si','no',], index=None, placeholder="seleccione una opcion")
+default = st.number_input('Balance de cuenta del cliente (euros)', min_value=0, max_value=1)
 balance = st.number_input('Balance de cuenta del cliente (euros)', min_value=0)
-housing = st.selectbox('Housing', ['si','no',], index=None, placeholder="seleccione una opcion")
-loan = st.selectbox('Loan', ['si','no',], index=None, placeholder="seleccione una opcion")
+housing = st.number_input('Balance de cuenta del cliente (euros)', min_value=0, max_value=1)
+loan = st.number_input('Balance de cuenta del cliente (euros)', min_value=0, max_value=1)
 
 # Crear un DataFrame con las entradas
 user_data = pd.DataFrame({
@@ -39,7 +38,6 @@ user_data_standardized = preprocessor_file.transform(user_data)
 
 # Realizar la predicción
 prediction_cluster = model_file.predict(user_data_standardized)
-
 
 # Mostrar la predicción
 st.write(f'"El cliente pertenece al cluster: {prediction_cluster[0]}')
