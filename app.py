@@ -42,8 +42,9 @@ prediction_cluster = loaded_kmeans.predict(user_data_standardized)
 
 
 st.write("Resultado del Clustering: ")
+
 # Mostrar la predicción
 if prediction_cluster[0] == 0:
-    st.write("***El cliente pertenece al Cluster 0, tiene mayor probabilidad de realizar depósitos.***")
+    st.write("***El cliente pertenece al Cluster 0, tiene mayor probabilidad de adquirir un depósito a plazo.***")
 else:
-    st.write("***El cliente pertenece al Cluster 1, tiene menor probabilidad de realizar depósitos.***")
+    st.write("***El cliente pertenece al Cluster 1, tiene menor probabilidad de adquirir un depósito a plazo.***")
