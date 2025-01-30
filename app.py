@@ -14,13 +14,13 @@ with open('kmeans_model.pkl', 'rb') as model_file:
 st.title('Clasificación de Clientes Bancarios')
 
 # Entrada de datos del usuario
-job = st.selectbox('Trabajo (seleccione una opcion)', ['blue-collar','entrepreneur','housemaid','management','retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'])
-marital = st.selectbox('Estado civil (seleccione una opcion)',['single','married','divorced'])
-education = st.selectbox('Educacion (seleccione una opcion)', ['primary','secondary','tertiary','unknown'])
-default = st.radio('Default', [0, 1], captions=["No","Si"], horizontal=True)
-balance = st.number_input('Balance de cuenta del cliente (euros)', min_value=0)
-housing = st.radio('Housing', [0, 1], captions=["No","Si"], horizontal=True)
-loan = st.radio('loan', [0, 1], captions=["No","Si"], horizontal=True)
+job = st.selectbox('Actividad laboral (seleccione una opción)', ['blue-collar','entrepreneur','housemaid','management','retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'])
+marital = st.selectbox('Estado civil (seleccione una opción)',['single','married','divorced'])
+education = st.selectbox('Educación (seleccione una opción)', ['primary','secondary','tertiary','unknown'])
+default = st.radio('¿Tiene crédito en mora?', [0, 1], captions=["No","Si"], horizontal=True)
+balance = st.number_input('Balance (Saldo medio anual en euros)', min_value=0)
+housing = st.radio('¿Tiene préstamo hipotecario?', [0, 1], captions=["No","Si"], horizontal=True)
+loan = st.radio('¿Tiene préstamo personal?', [0, 1], captions=["No","Si"], horizontal=True)
 
 
 # Crear un DataFrame con las entradas
@@ -44,6 +44,6 @@ prediction_cluster = loaded_kmeans.predict(user_data_standardized)
 st.write("Resultado del Clustering: ")
 # Mostrar la predicción
 if prediction_cluster[0] == 0:
-    st.write("***El cliente pertenece al Cluster 0 tiene mayor probabilidad de realizar depósitos.***")
+    st.write("***El cliente pertenece al Cluster 0, tiene mayor probabilidad de realizar depósitos.***")
 else:
-    st.write("El cliente pertenece al Cluster 1 tiene menor probabilidad de realizar depósitos.")
+    st.write("***El cliente pertenece al Cluster 1, tiene menor probabilidad de realizar depósitos.***")
