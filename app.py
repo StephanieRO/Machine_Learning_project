@@ -11,13 +11,17 @@ with open('kmeans_model.pkl', 'rb') as model_file:
 
 
 # Título de la aplicación
-st.title('Clasificación de Clientes Bancarios)')
+st.title('Clasificación de Clientes Bancarios')
 
 # Entrada de datos del usuario
 job = st.selectbox('Trabajo (seleccione una opcion)', ['blue-collar','entrepreneur','housemaid','management','retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'])
 marital = st.selectbox('Estado civil (seleccione una opcion)',['single','married','divorced'])
 education = st.selectbox('Educacion (seleccione una opcion)', ['primary','secondary','tertiary','unknown'])
-default = st.number_input('Default (1 = si, 0 = no)', min_value=0, max_value=1)
+default = st.radio('Default', [0, 1], captions=[
+        "No",
+        "Si"
+    ],)
+#default = st.number_input('Default (1 = si, 0 = no)', min_value=0, max_value=1)
 balance = st.number_input('Balance de cuenta del cliente (euros)', min_value=0)
 housing = st.number_input('Housing (1 = si, 0 = no)', min_value=0)
 loan = st.number_input('loan (1 = si, 0 = no)', min_value=0)
