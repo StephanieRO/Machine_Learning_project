@@ -11,7 +11,7 @@ with open('kmeans_model.pkl', 'rb') as model_file:
 
 
 # Título de la aplicación
-st.title('Predicción de si el cliente pertenese al cluster 1(No deposito) o 0(Si deposito)')
+st.title('Clasificación de Clientes Bancarios)')
 
 # Entrada de datos del usuario
 job = st.selectbox('Trabajo (seleccione una opcion)', ['blue-collar','entrepreneur','housemaid','management','retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'])
